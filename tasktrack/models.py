@@ -22,6 +22,7 @@ class Task(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     project = models.ForeignKey('tasktrack.Project', related_name='Tasks', null=True, on_delete=models.CASCADE)
     title = models.CharField(max_length=200, unique=True)
+    # author = models.ForeignKey(User, on_delete= models.CASCADE, related_name= 'tasks')
     updated_on = models.DateTimeField(auto_now = True)
     description = models.TextField()
     created_on = DateTimeField(auto_now_add=True)

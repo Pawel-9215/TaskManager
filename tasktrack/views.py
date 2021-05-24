@@ -28,7 +28,7 @@ class CreateTaskView(LoginRequiredMixin, generic.CreateView):
     form_class = TaskForm
     model = Task
 
-class CreateTaskView(LoginRequiredMixin, generic.CreateView):
+class CreateProjectView(LoginRequiredMixin, generic.CreateView):
     login_url = '/login/'
     redirect_field_name = 'task_list.html'
 

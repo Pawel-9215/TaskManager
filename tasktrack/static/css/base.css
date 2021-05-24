@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+    font-family: 'Gudea', sans-serif;
+    font-weight: 300;
+    color: rgb(53, 36, 36);
+    background-color: rgb(255, 255, 255);
+}
+
+.title {
+    font-family: 'Gudea', sans-serif;
+    font-weight: 400;
+}
+
+.task {
+    background-color: aquamarine;
+}
+

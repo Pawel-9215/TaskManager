@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Gudea&display=swap" rel="stylesheet"> 
+   
+    <!-- custom css -->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+   
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <title>Task Tracker</title>
+</head>
+<body>
+    <h1 class="title">Pawelek's Task Manager</h1>
+    <a href="#">All Tasks</a>
+    <a href="#">Projects</a>
+    <a href="#">Finished Tasks</a>
+    <a href="#">Add Task</a>
+    <a href="#">Add Project</a>
+    {% block content %}
+    <!-- content goes here -->
+    {% endblock content %}
+
+    <!-- lol footer? -->
+    <p class="footer"> Footer </p>
+</body>
+</html>

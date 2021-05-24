@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class = "title">Tasks to be done:</h2>
+{% for task in task_list %}
+    <div class = "task">
+        <h3 class = "title">{{ task.title }}</h3>
+        <p>{{ task.created_on }}</p>
+        <p>{{ task.description }}</p>
+    </div>
+    
+    <p></p>
+
+{% endfor %}
+
+{% endblock %}

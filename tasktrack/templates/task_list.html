@@ -7,9 +7,12 @@
         <h3 class = "title">{{ task.title }}</h3>
         <p>{{ task.created_on }}</p>
         <p>{{ task.description }}</p>
+        <p>{{ task.author }}</p>
     </div>
     
     <p></p>
+{% empty %}
+<p>List is empty</p>
 
 {% endfor %}
 

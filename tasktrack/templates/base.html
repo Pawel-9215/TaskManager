@@ -17,11 +17,12 @@
 </head>
 <body>
     <h1 class="title">Pawelek's Task Manager</h1>
-    <a href="#">All Tasks</a>
-    <a href="#">Projects</a>
-    <a href="#">Finished Tasks</a>
-    <a href="#">Add Task</a>
+    <a href="{% url 'task_list' %}">All Tasks</a>
+    <a href="{% url 'task_done' %}">Finished Tasks</a>
+    <a href="{% url 'create_task' %}">Add Task</a>
     <a href="#">Add Project</a>
+    <a href="{% url 'about' %}">About</a>
+
     {% block content %}
     <!-- content goes here -->
     {% endblock content %}

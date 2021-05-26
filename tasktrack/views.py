@@ -3,6 +3,7 @@ from django.views import generic
 from .models import Project, STATUS, Task
 from django.contrib.auth.mixins import LoginRequiredMixin
 from tasktrack.forms import TaskForm, ProjectForm
+from django.urls import reverse_lazy
 
 # Create your views here.
 
@@ -27,6 +28,8 @@ class CreateTaskView(LoginRequiredMixin, generic.CreateView):
 
     form_class = TaskForm
     model = Task
+    success_url = reverse_lazy('task_list')
+    template_name = 'task_form.html'
 
 class CreateProjectView(LoginRequiredMixin, generic.CreateView):
     login_url = '/login/'

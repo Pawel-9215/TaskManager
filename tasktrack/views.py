@@ -12,6 +12,10 @@ from django.contrib.auth.views import LoginView
 class UserLogin(LoginView):
     template_name = 'login.html'
     fields = '__all__'
+    redirect_authenticated_user = True
+
+    def get_success_url(self) -> str:
+        return reverse_lazy('task_list')
 
 class TaskList(LoginRequiredMixin, generic.ListView):
     login_url = '/login/'

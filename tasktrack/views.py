@@ -20,8 +20,14 @@ class UserLogin(LoginView):
 class TaskList(LoginRequiredMixin, generic.ListView):
     login_url = '/login/'
     model = Task
-    queryset = Task.objects.filter(status=0).order_by('created_on')
+    # queryset = Task.objects.filter(status=0).order_by('created_on')
+    context_object_name = 'task_list'
     template_name = "task_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['task_list'] = context['task_list'].filter(author=self.request.user)
+        return context
 
 class AboutView(generic.TemplateView):
     template_name = "about.html"
@@ -40,6 +46,10 @@ class CreateTaskView(LoginRequiredMixin, generic.CreateView):
     model = Task
     success_url = reverse_lazy('task_list')
     template_name = 'task_form.html'
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super(CreateTaskView, self).form_valid(form)
 
 class CreateProjectView(LoginRequiredMixin, generic.CreateView):
     login_url = '/login/'

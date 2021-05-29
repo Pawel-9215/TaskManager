@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import generic
 from .models import Project, STATUS, Task
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -20,8 +20,23 @@ class UserLogin(LoginView):
         return reverse_lazy('task_list')
 
 class UserRegister(generic.FormView):
-    template_name = 'regiter.html'
+    template_name = 'register.html'
     form_class = UserCreationForm
+
+    def get_success_url(self):
+        return reverse_lazy('task_list')
+
+    def form_valid(self, form):
+        user = form.save()
+        if user is not None:
+            login(self.request, user)
+        return super(UserRegister, self).form_valid(form)
+
+    def get(self, *args, **kwargs):
+        if self.request.user.is_authenticated:
+            return redirect('task_list')
+        return super(UserRegister, self).get(*args, **kwargs)
+
 
 
 class TaskList(LoginRequiredMixin, generic.ListView):
@@ -51,6 +66,12 @@ class TaskListDone(LoginRequiredMixin, generic.ListView):
     queryset = Task.objects.filter(status=1).order_by('created_on')
     template_name = "done_tasks.html"
 
+class TaskEditView(LoginRequiredMixin, generic.UpdateView):
+    login_url = '/login/'
+    model = Task
+    form_class = TaskForm
+    template_name = 'task_form.html'
+
 class CreateTaskView(LoginRequiredMixin, generic.CreateView):
     login_url = '/login/'
     redirect_field_name = 'task_list.html'
@@ -72,3 +93,7 @@ class CreateProjectView(LoginRequiredMixin, generic.CreateView):
     model = Project
     success_url = reverse_lazy('task_list')
     template_name = 'project_form.html'
+
+    def form_valid(self, form):
+        form.instance.owner = self.request.user
+        return super(CreateProjectView, self).form_valid(form)

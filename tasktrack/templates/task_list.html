@@ -11,7 +11,8 @@
         <h3 class = "title">{{ task.title }}</h3>
         <p>{{ task.created_on }}</p>
         <p>{{ task.description }}</p>
-        <p>{{ task.author }}</p>
+        <p>{{ task.author }}</p><br>
+        <a href="{% url 'edit_task' pk=task.pk %}">Edit Task</a>
     </div>
     
     <p></p>

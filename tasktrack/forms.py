@@ -6,7 +6,7 @@ class ProjectForm(forms.ModelForm):
 
     class Meta():
         model = Project
-        fields = ('owner', 'title', 'status')
+        fields = ('title', 'status')
         
         widgets = {
             'title': forms.TextInput(attrs={'class':'textinputclass'}),

@@ -22,7 +22,7 @@
         <a href="{% url 'task_done' %}">Finished Tasks</a>
         <a href="{% url 'create_task' %}">Add Task</a>
         <a href="{% url 'create_project' %}">Add Project</a>
-        <a href="{% url 'about' %}">About</a>
+       
 
         <a href="{% url 'task_list' %}">{{ request.user }}</a>
         <a href="{% url 'logout' %}">Logout</a>
@@ -33,6 +33,6 @@
     {% endblock content %}
 
     <!-- lol footer? -->
-    <p class="footer"> Footer </p>
+    <p class="footer"> Footer  <a href="{% url 'about' %}">About</a></p>
 </body>
 </html>

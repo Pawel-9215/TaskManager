@@ -27,10 +27,16 @@ class TaskList(LoginRequiredMixin, generic.ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['task_list'] = context['task_list'].filter(author=self.request.user)
+        context['projects'] = Project.objects.filter(owner=self.request.user)
         return context
 
 class AboutView(generic.TemplateView):
     template_name = "about.html"
+
+class ProjectDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Project
+    context_object_name = 'project'
+    template_name = 'project_detail.html'
 
 class TaskListDone(LoginRequiredMixin, generic.ListView):
     login_url = '/login/'

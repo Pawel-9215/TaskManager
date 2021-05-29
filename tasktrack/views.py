@@ -6,6 +6,8 @@ from tasktrack.forms import TaskForm, ProjectForm
 from django.urls import reverse_lazy
 
 from django.contrib.auth.views import LoginView
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
 
 # Create your views here.
 
@@ -16,6 +18,11 @@ class UserLogin(LoginView):
 
     def get_success_url(self) -> str:
         return reverse_lazy('task_list')
+
+class UserRegister(generic.FormView):
+    template_name = 'regiter.html'
+    form_class = UserCreationForm
+
 
 class TaskList(LoginRequiredMixin, generic.ListView):
     login_url = '/login/'

@@ -58,7 +58,13 @@ class AboutView(generic.TemplateView):
 class ProjectDetailView(LoginRequiredMixin, generic.DetailView):
     model = Project
     context_object_name = 'project'
-    template_name = 'project_detail.html'
+    template_name = 'task_list.html'
+    login_url = '/login/'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['projects'] = Project.objects.filter(owner=self.request.user)
+        return context
 
 class TaskListDone(LoginRequiredMixin, generic.ListView):
     login_url = '/login/'
@@ -71,6 +77,16 @@ class TaskEditView(LoginRequiredMixin, generic.UpdateView):
     model = Task
     form_class = TaskForm
     template_name = 'task_form.html'
+    success_url = reverse_lazy('task_list')
+
+    def get_form_kwargs(self):
+        """ Passes the request object to the form class.
+         This is necessary to only display members that belong to a given user"""
+
+        kwargs = super(TaskEditView, self).get_form_kwargs()
+        kwargs['request'] = self.request
+        return kwargs
+    
 
 class CreateTaskView(LoginRequiredMixin, generic.CreateView):
     login_url = '/login/'
@@ -80,6 +96,14 @@ class CreateTaskView(LoginRequiredMixin, generic.CreateView):
     model = Task
     success_url = reverse_lazy('task_list')
     template_name = 'task_form.html'
+
+    def get_form_kwargs(self):
+        """ Passes the request object to the form class.
+         This is necessary to only display members that belong to a given user"""
+
+        kwargs = super(CreateTaskView, self).get_form_kwargs()
+        kwargs['request'] = self.request
+        return kwargs
 
     def form_valid(self, form):
         form.instance.author = self.request.user

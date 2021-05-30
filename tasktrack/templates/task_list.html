@@ -2,23 +2,45 @@
 {% block content %}
 
 <h2 class = "title">Tasks to be done:</h2>
-
+<a href="{% url 'task_list' %}">All Tasks</a>
 {% for project in projects %}
 <a href="{% url 'project_detail' pk=project.pk %}">{{ project.title }}</a>
 {% endfor %}
-{% for task in task_list %}
-    <div class = "task">
-        <h3 class = "title">{{ task.title }}</h3>
-        <p>{{ task.created_on }}</p>
-        <p>{{ task.description }}</p>
-        <p>{{ task.author }}</p><br>
-        <a href="{% url 'edit_task' pk=task.pk %}">Edit Task</a>
-    </div>
-    
-    <p></p>
-{% empty %}
-<p>List is empty</p>
 
-{% endfor %}
+{% if project %}
+    <h3>Project filtering is on</h3>
+    {% for task in project.Tasks.all %}
+        <div class = "task">
+            <h3 class = "title">{{ task.title }}</h3>
+            <p>{{ task.created_on }}</p>
+            <p>{{ task.description }}</p>
+            <p>{{ task.project }}</p>
+            <p>{{ task.author }}</p><br>
+            <a href="{% url 'edit_task' pk=task.pk %}">Edit Task</a>
+        </div>
+        
+        <p></p>
+    {% empty %}
+    <p>List is empty</p>
+
+    {% endfor %}
+{% else %}
+
+    {% for task in task_list %}
+        <div class = "task">
+            <h3 class = "title">{{ task.title }}</h3>
+            <p>{{ task.created_on }}</p>
+            <p>{{ task.description }}</p>
+            <p>{{ task.project }}</p>
+            <p>{{ task.author }}</p><br>
+            <a href="{% url 'edit_task' pk=task.pk %}">Edit Task</a>
+        </div>
+        
+        <p></p>
+    {% empty %}
+    <p>List is empty</p>
+
+    {% endfor %}
+{% endif %}
 
 {% endblock %}

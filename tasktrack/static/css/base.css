@@ -6,12 +6,74 @@ body {
     background-color: rgb(255, 255, 255);
 }
 
-.title {
-    font-family: 'Gudea', sans-serif;
-    font-weight: 400;
-}
-
 .task {
     background-color: aquamarine;
 }
 
+ul 
+{
+    list-style-type: none;
+}
+
+.nav-item a {
+    display: inline-block;
+    padding: 1em 2em;
+    text-decoration: none;
+    color: rgb(240, 221, 221);
+  }
+
+.sub-nav-link a {
+    display: inline-block;
+    padding: 0.01em 1em;
+    text-decoration: none;
+    color: rgb(138, 130, 130);
+  }
+
+.site-logo {
+    padding-left: 2em;
+    padding-right: 2em;
+    color: white;
+    font-size: large;
+}
+
+.MyNavbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: blue;
+    align-items: center;
+    transition: 50ms;
+}
+
+.sub-navbar {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(54, 54, 54);
+    align-items: center;
+    transition: 50ms;
+}
+
+.nav-links {
+    display: flex;
+}
+
+.MyNavbar > li {
+    flex: 1;
+}
+
+@media all and (max-width: 600px) {  
+    
+    .MyNavbar {  
+      flex-wrap: wrap;  
+    }  
+      
+    .MyNavbar > li {  
+      flex-basis: 50%;  
+    }
+  
+  }
+
+@media all and (max-width: 400px) {
+
+    .MyNavbar > li {  
+      flex-basis: 100%;  
+    } 

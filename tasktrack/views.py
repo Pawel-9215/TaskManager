@@ -49,6 +49,7 @@ class TaskList(LoginRequiredMixin, generic.ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['task_list'] = context['task_list'].filter(author=self.request.user)
+        context['task_list'] = context['task_list'].filter(status=0).order_by('created_on')
         context['projects'] = Project.objects.filter(owner=self.request.user)
         return context
 
@@ -69,8 +70,16 @@ class ProjectDetailView(LoginRequiredMixin, generic.DetailView):
 class TaskListDone(LoginRequiredMixin, generic.ListView):
     login_url = '/login/'
     model = Task
-    queryset = Task.objects.filter(status=1).order_by('created_on')
-    template_name = "done_tasks.html"
+    #queryset = Task.objects.filter(status=1).order_by('created_on')
+    context_object_name = 'task_list'
+    template_name = "task_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['task_list'] = context['task_list'].filter(author=self.request.user)
+        context['task_list'] = context['task_list'].filter(status=1).order_by('created_on')
+        context['projects'] = Project.objects.filter(owner=self.request.user)
+        return context
 
 class TaskEditView(LoginRequiredMixin, generic.UpdateView):
     login_url = '/login/'

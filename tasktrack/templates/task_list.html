@@ -1,7 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
+<nav class="sub-navbar">
+    <ul class="nav-links">
+        <li class="sub-nav-link"><a href="{% url 'task_list' %}">All Tasks</a></li>
+        <li class="sub-nav-link"><a href="{% url 'task_done' %}">Finished Tasks</a></li>
+        <li class="sub-nav-link">Projects: </li>
+    </ul>
 
-<h2 class = "title">Tasks to be done:</h2>
+</nav>
+
+
+
+<br><br><br>
 <a href="{% url 'task_list' %}">All Tasks</a>
 {% for project in projects %}
 <a href="{% url 'project_detail' pk=project.pk %}">{{ project.title }}</a>

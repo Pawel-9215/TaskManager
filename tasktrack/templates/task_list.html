@@ -4,7 +4,14 @@
     <ul class="nav-links">
         <li class="sub-nav-link"><a href="{% url 'task_list' %}">All Tasks</a></li>
         <li class="sub-nav-link"><a href="{% url 'task_done' %}">Finished Tasks</a></li>
-        <li class="sub-nav-link">Projects: </li>
+        <li class="sub-nav-link"> <div class="dropdown">
+            <a href='#' class="drop-btn">Projects</a>
+            <div class="dropdown-content">
+                {% for project in projects %}
+                <a href="{% url 'project_detail' pk=project.pk %}">{{ project.title }}</a>
+                {% endfor %}
+            </div>
+          </div> </li>
     </ul>
 
 </nav>

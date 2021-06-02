@@ -75,6 +75,8 @@ ul
 .dropdown:hover .drop-btn {background-color: #8c8a8f;}
 
 .sub-navbar {
+    border-bottom-left-radius: 2em;
+    border-bottom-right-radius: 2em;
     display: flex;
     justify-content: center;
     background-color: rgb(54, 54, 54);

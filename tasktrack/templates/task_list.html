@@ -5,7 +5,7 @@
         <li class="sub-nav-link"><a href="{% url 'task_list' %}">All Tasks</a></li>
         <li class="sub-nav-link"><a href="{% url 'task_done' %}">Finished Tasks</a></li>
         <li class="sub-nav-link"> <div class="dropdown">
-            <a href='#' class="drop-btn">Projects</a>
+            <a href='#' class="drop-btn">Filter by Project:</a>
             <div class="dropdown-content">
                 {% for project in projects %}
                 <a href="{% url 'project_detail' pk=project.pk %}">{{ project.title }}</a>
@@ -13,30 +13,25 @@
             </div>
           </div> </li>
     </ul>
-
 </nav>
 
 
 
 <br><br><br>
-<a href="{% url 'task_list' %}">All Tasks</a>
-{% for project in projects %}
-<a href="{% url 'project_detail' pk=project.pk %}">{{ project.title }}</a>
-{% endfor %}
+
 
 {% if project %}
-    <h3>Project filtering is on</h3>
+    <p>Project filtering is on</p>
     {% for task in project.Tasks.all %}
-        <div class = "task">
-            <h3 class = "title">{{ task.title }}</h3>
-            <p>{{ task.created_on }}</p>
-            <p>{{ task.description }}</p>
-            <p>{{ task.project }}</p>
-            <p>{{ task.author }}</p><br>
-            <a href="{% url 'edit_task' pk=task.pk %}">Edit Task</a>
-        </div>
-        
-        <p></p>
+        <a href="{% url 'edit_task' pk=task.pk %}">
+            <div class="task">
+                <p>{{ task.created_on }}</p>
+                <h3 class = "title">{{ task.title }}</h3>
+                
+                <p>{{ task.description }}</p>
+                <p>{{ task.project }}</p>
+                <p>{{ task.author }}</p><br>
+            </div></a>
     {% empty %}
     <p>List is empty</p>
 
@@ -44,13 +39,16 @@
 {% else %}
 
     {% for task in task_list %}
-        <div class = "task">
-            <h3 class = "title">{{ task.title }}</h3>
-            <p>{{ task.created_on }}</p>
-            <p>{{ task.description }}</p>
-            <p>{{ task.project }}</p>
-            <p>{{ task.author }}</p><br>
-            <a href="{% url 'edit_task' pk=task.pk %}">Edit Task</a>
+   
+        <div class="task">
+            <a href="{% url 'edit_task' pk=task.pk %}">
+            <div class="container">
+                <p>{{ task.created_on }}</p>
+                <h3 class = "title">{{ task.title }}</h3>
+                <p>{{ task.description }}<br>
+                {{ task.project }}<br>
+                {{ task.author }}<br>
+            </div> </a>
         </div>
         
         <p></p>

@@ -2,7 +2,5 @@ asgiref
 certifi==2020.12.5
 Django
 psycopg2
-purge==1.0
-python-dotenv==0.17.1
 pytz
 sqlparse

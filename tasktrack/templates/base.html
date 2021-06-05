@@ -18,11 +18,11 @@
 <body>
     <!-- navbar -->
     <nav class="MyNavbar">
-        <a href="#" class="site-logo">MorgenList.com</a>
+        <a href="{% url 'task_list' %}" class="site-logo">MorgenList.com</a>
         <ul class="nav-links">
             {% if request.user.is_authenticated %}
                 <li class='nav-item'><a href="{% url 'task_list' %}">Tasks</a></li>
-                <li class='nav-item'><a href="#">Projects</a></li>
+                <li class='nav-item'><a href="{% url 'project_list' %}">Projects</a></li>
                 <li class='nav-item'><a href="{% url 'logout' %}">User: {{ request.user }}</a></li>
             {% else %}
                 <li class='nav-item'><a href="{% url 'user_login' %}">Login</a></li>
@@ -49,6 +49,6 @@
     {% endblock content %}
 
     <!-- lol footer? -->
-    <p class="footer">Author: Paweł Hordyniak | <a href="https://hordyniak.com">https://hordyniak.com</a> | <a href="{% url 'about' %}">About</a> | <a href="https://github.com/Pawel-9215/TaskManager">Source: Github</a></p>
+    <p class="footer">Author: <a href="mailto:hordyniak@gmail.com">Paweł Hordyniak</a> | <a href="https://hordyniak.com">https://hordyniak.com</a> | <a href="{% url 'about' %}">About</a> | <a href="https://github.com/Pawel-9215/TaskManager">Source: Github</a></p>
 </body>
 </html>

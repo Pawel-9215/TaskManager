@@ -1,3 +1,4 @@
+from django.contrib import auth
 from django.shortcuts import render, redirect
 from django.views import generic
 from .models import Project, STATUS, Task
@@ -51,6 +52,17 @@ class TaskList(LoginRequiredMixin, generic.ListView):
         context['task_list'] = context['task_list'].filter(author=self.request.user)
         context['task_list'] = context['task_list'].filter(status=0).order_by('created_on')
         context['projects'] = Project.objects.filter(owner=self.request.user)
+        return context
+
+class ProjectList(LoginRequiredMixin, generic.ListView):
+    login_url = '/login/'
+    model = Project
+    context_object_name = 'project_list'
+    template_name = 'project_list.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['project_list'] = context['project_list'].filter(owner=self.request.user)
         return context
 
 class AboutView(generic.TemplateView):

@@ -142,3 +142,16 @@ class CreateProjectView(LoginRequiredMixin, generic.CreateView):
     def form_valid(self, form):
         form.instance.owner = self.request.user
         return super(CreateProjectView, self).form_valid(form)
+
+class ProjectEditView(LoginRequiredMixin, generic.UpdateView):
+    login_url = '/login/'
+    model = Project
+    form_class = ProjectForm
+    template_name = 'project_form.html'
+    success_url = reverse_lazy('project_list')
+
+class DeleteProjectView(LoginRequiredMixin, generic.DeleteView):
+    login_url = '/login/'
+    model = Project
+    template_name='project_delete.html'
+    success_url = reverse_lazy('project_list')

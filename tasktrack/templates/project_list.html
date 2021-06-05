@@ -1,13 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2 class = "title">Project List</h2>
-<p>list of projects</p>
-
-<div class='project_list'>
-    {% for project in project_list %}
-    <p>{{ project.title }}</p>
-    {% endfor %}
+<div class=>
+    <div class='taskfield'>
+        {% for project in project_list %}
+        <div class="project">
+            <a href="{% url 'edit_project' pk=project.pk %}">
+            <div class="container">
+            {{ project.title }}
+            </div> </a>
+        </div>
+        <a class = "projectx" href="{% url 'delete_project' pk=project.pk %}">
+            <div class="container">
+                X
+            </div>
+        </a>
+        {% endfor %}
+    </div>
 </div>
-
 {% endblock %}

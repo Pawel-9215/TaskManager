@@ -7,7 +7,6 @@ from django.utils import timezone
 STATUS = (
     (0, "ToDo"),
     (1, "Done"),
-    (2, "Deleted"),
 )
 
 class Project(models.Model):

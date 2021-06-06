@@ -19,10 +19,12 @@ body {
 }
 
 .site-logo {
-  font-family: 'Fredericka the Great', cursive;
+  font-family: 'Odibee Sans', cursive;
   text-decoration: none;
   font-size:xx-large;
   color: #E6DCC9;
+  margin: 0;
+  padding: 0em;
   margin-left: 5%;
 }
 
@@ -36,7 +38,7 @@ body {
   transition: 0.1s;
   min-width: 22%;
   max-width: 22%;
-  border-radius: 0.8em;
+  border-radius: 0.5em;
   background-color: #DBE9EA;
   margin: 1em;
   display: inline-block;
@@ -52,7 +54,7 @@ body {
   transition: 0.1s;
   min-width: 22%;
   max-width: 22%;
-  border-radius: 0.8em;
+  border-radius: 0.5em;
   background-color: #CDDAE0;
   margin: 1em;
   display: inline-block;
@@ -60,23 +62,23 @@ body {
 }
 
 .project {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: none;
   transition: 0.1s;
   min-width: 80%;
   max-width: 80%;
-  border-radius: 0.8em;
-  background-color: blanchedalmond;
+  border-radius: 0.5em;
+  background-color: #CDDAE0;
   margin: 0.4em;
   display: inline-block;
   
 }
 .projectx {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: none;
   transition: 0.1s;
   min-width: 10%;
   max-width: 10%;
   border-radius: 0.8em;
-  background-color: blanchedalmond;
+  background-color: #E6DCC9;
   margin: 0.4em;
   display: inline-block;
   justify-content: center;
@@ -84,18 +86,24 @@ body {
   
 }
 
-.projectx:hover {
-  background-color: rgb(221, 45, 32);
+.projectxbut {
+  color: black;
+  text-decoration: none;
 }
 
+.projectx:hover {
+  background-color: #F5717F;
+}
 
 .project a:link {
   color: black;
   text-decoration: none;
 }
 
+
+
 .project:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 .task a:link {
@@ -137,24 +145,24 @@ ul
 
 .nav-item a {
     display: inline-block;
-    padding: 0.4em 1em;
+    padding: 0.2em 1em;
     
-    margin-right: 2em;
+    margin-right: 0.5em;
     text-decoration: none;
     color: #FDFDFD;
-    background-color: #9C9C9C;
+    
     font-size: larger;
-    border-radius: 0.5em;
+    border-radius: 0.3em;
   }
 
 .sub-nav-link a {
     display: inline-block;
     padding: 0.2em 0.4em;
-    margin: 0em 0.4em;
+    margin: 0em 0.2em;
     text-decoration: none;
-    color: #FDFDFD;
-    background-color: #4D4D4D;
-    border-radius: 0.4em;
+    color: #000000;
+    
+    border-radius: 0.2em;
   }
 
 .MyNavbar {
@@ -163,6 +171,7 @@ ul
     background-color: #4D4D4D;
     align-items: center;
     transition: 50ms;
+    height: 2.8em;
 }
 
 .dropdown {
@@ -177,15 +186,15 @@ li a:hover, .dropdown:hover .dropbtn {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f1f1f1;
+    background-color: #DBE9EA;
     min-width: 160px;
     z-index: 1;
     box-shadow: none;
-    border-radius: 0.5em;
+    border-radius: 0.2em;
   }
 
 .dropdown-content a {
-    color: rgb(223, 222, 222);
+    color: rgb(0, 0, 0);
     padding: 0.4em;
     margin: 0.2em;
     text-decoration: none;
@@ -194,22 +203,22 @@ li a:hover, .dropdown:hover .dropbtn {
   }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #8c8a8f;}
+.dropdown-content a:hover {background-color: #E6DCC9;}
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {display: block;}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .drop-btn {background-color: #8c8a8f;}
+.dropdown:hover .drop-btn {background-color: #DBE9EA;}
 
 .sub-navbar {
-    border-bottom-left-radius: 1em;
-    border-bottom-right-radius: 1em;
+    border-bottom-left-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
     display: flex;
     justify-content: center;
-    background-color: #9C9C9C;
+    background-color: #DBE9EA;
     align-items: center;
-    height: 2.5em;
+    height: 2em;
 }
 
 .nav-links {
@@ -223,7 +232,8 @@ li a:hover, .dropdown:hover .dropbtn {
 @media all and (max-width: 1200px) {  
     
     .MyNavbar {  
-      flex-wrap: wrap;  
+      flex-wrap: wrap;
+      height: auto;
     }  
       
     .MyNavbar > li {  

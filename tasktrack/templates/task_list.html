@@ -23,15 +23,19 @@
 {% if project %}
     {% for task in project.Tasks.all %}
         {% if task.status == 0 %}
-        <div class="task">
-            <a href="{% url 'edit_task' pk=task.pk %}">
-            <div class="container">
-                <p>{{ task.created_on }}</p>
-                <h3 class = "title">{{ task.title }}</h3>
-                <p>{{ task.description }}<br>
-                {{ task.project }}<br>
-            </div> </a>
-        </div>
+            {% if task.is_week_old %}
+                <div class="task old">
+            {% else %}
+                <div class="task">
+            {% endif %}
+                <a href="{% url 'edit_task' pk=task.pk %}">
+                <div class="container">
+                    <p>{{ task.created_on }}</p>
+                    <h3 class = "title">{{ task.title }}</h3>
+                    <p>{{ task.description }}<br>
+                    {{ task.project }}<br>
+                </div> </a>
+            </div>
         {% endif %}
     {% empty %}
     <p>List is empty</p>

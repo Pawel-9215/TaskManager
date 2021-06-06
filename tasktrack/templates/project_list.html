@@ -10,9 +10,9 @@
             {{ project.title }}
             </div> </a>
         </div>
-        <a class = "projectx" href="{% url 'delete_project' pk=project.pk %}">
+        <a class = "projectx projectxbut" href="{% url 'delete_project' pk=project.pk %}">
             <div class="container">
-                X
+                <b>X</b>
             </div>
         </a>
         {% endfor %}

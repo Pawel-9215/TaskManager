@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.fields import DateTimeField
 from django.utils import timezone
+import datetime
 
 # Create your models here.
 STATUS = (
@@ -37,5 +38,8 @@ class Task(models.Model):
     def update(self):
         self.updated_on = timezone.now()
         self.save()
+
+    def is_week_old(self):
+        return (timezone.now() - self.created_on).days > 5
 
     

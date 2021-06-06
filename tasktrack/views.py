@@ -9,6 +9,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
+import datetime
 
 # Create your views here.
 
@@ -52,6 +53,7 @@ class TaskList(LoginRequiredMixin, generic.ListView):
         context['task_list'] = context['task_list'].filter(author=self.request.user)
         context['task_list'] = context['task_list'].filter(status=0).order_by('created_on')
         context['projects'] = Project.objects.filter(owner=self.request.user)
+        context['current_date'] = datetime.datetime.now()
         return context
 
 class ProjectList(LoginRequiredMixin, generic.ListView):

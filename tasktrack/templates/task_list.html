@@ -40,11 +40,18 @@
 {% else %}
 
     {% for task in task_list %}
-   
-        <div class="task">
+        {% if task.is_week_old and not task.status == 1 %}
+            <div class = "task old">
+        {% else %}
+            {% if task.status == 0 %}
+                <div class="task">
+            {% else %}
+                <div class="task-finished">
+            {% endif %}
+        {% endif %}
             <a href="{% url 'edit_task' pk=task.pk %}">
             <div class="container">
-                <p>{{ task.created_on }}</p>
+                <p><b>TASK AGE</b>: {{ task.created_on|timesince }}</p>
                 <h3 class = "title">{{ task.title }}</h3>
                 <p>{{ task.description }}<br>
                 {{ task.project }}<br>

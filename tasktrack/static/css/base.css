@@ -33,6 +33,10 @@ body {
   color: #E6DCC9;
 }
 
+#font_small {
+  font-size: smaller;
+}
+
 .task {
   box-shadow: none;
   transition: 0.1s;
@@ -180,7 +184,7 @@ ul
   }
 
 li a:hover, .dropdown:hover .dropbtn {
-    background-color: #8c8a8f;
+    background-color: #E6DCC9;
   }
 
 .dropdown-content {

@@ -1,23 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
 
+
 <br>
 
 
 <div class='task_form'>
-    <div class="task">
-        <div class='container'>
+    <div class="edit_task">
+        <div class=''>
             <h2 class = "title">Task:</h2>
-            <p>This should be task form</p>
+            <p>Edit task details</p>
 
             <form method="POST" action="">
                 {% csrf_token %}
-                {{ form.status }}
-                {{ form.project }}
-                {{ form.title }}
-                {{ form.description }}
+
+                STATUS: {{ form.status }}<br><br>
+                Title: {{ form.title }}<br><br>
+                Description: <br>{{ form.description }}<br><br>
+                Assign to project: {{ form.project }}<br><br>
                 <input type="submit" value="Submit">
-            </form>
+            </form><br>
         </div>
     </div>
 </div>

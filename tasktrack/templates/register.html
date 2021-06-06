@@ -1,17 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2 class = "title">Register</h2>
-    <p>
-       Register here
-    </p>
-    <form action="" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value='Register'>
-    </form>
-    <p>Already have an account?</p>
-    <a href="{% url 'user_login' %}">Login</a> 
-
+<br>
+    <div class='task_form'>
+        <div class="edit_task">
+            <div class=''>
+                <h2 class = "title">Register</h2>
+                <p>Register here</p>
+    
+                <form method="POST" action="">
+                    {% csrf_token %}
+    
+                    {{ form.as_p }}<br>
+                    
+                    <input type="submit" value="Submit">
+                </form><br>
+                <p>Already have an account?<br>
+    <a href="{% url 'user_login' %}">Login</a> </p>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}

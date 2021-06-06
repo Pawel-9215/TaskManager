@@ -33,7 +33,7 @@
                     <p><b id='font_small'>TASK AGE</b>: {{ task.created_on|timesince }}</p>
                     <h3 class = "title">{{ task.title }}</h3>
                     <p>{{ task.description }}<br>
-                    {{ task.project }}<br>
+                        <div id="font_small" class='right_al'>Project: {{ task.project }}</div><br>
                 </div> </a>
             </div>
         {% endif %}
@@ -58,7 +58,7 @@
                 <p><b id='font_small'>TASK AGE</b>: {{ task.created_on|timesince }}</p>
                 <h3 class = "title">{{ task.title }}</h3>
                 <p>{{ task.description }}<br>
-                <div id="font_small">{{ task.project }}</div><br>
+                <div id="font_small" class='right_al'>Project: {{ task.project }}</div><br>
             </div> </a>
         </div>
     {% empty %}

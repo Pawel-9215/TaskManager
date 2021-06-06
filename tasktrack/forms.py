@@ -20,7 +20,7 @@ class TaskForm(forms.ModelForm):
 
         widgets = {
                 'title': forms.TextInput(attrs={'class':'textinputclass'}),
-                'description': forms.TextInput(attrs={'class':'textinputclass'}),
+                'description': forms.Textarea(attrs={'class':'textinputclass-description'}),
             }
     
     def __init__(self, *args, **kwargs):

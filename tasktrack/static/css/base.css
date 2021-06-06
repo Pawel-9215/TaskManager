@@ -11,6 +11,26 @@ body {
 
 }
 
+.textinputclass {
+  padding: 0.5em;
+  margin: 0.2em;
+  border-radius: 0.4em;
+  justify-content: center;
+}
+
+.textinputclass-description {
+  padding: 0.5em;
+  margin: 0.2em;
+  border-radius: 0.4em;
+  width: 92%;
+  resize: none;
+}
+
+.right_al {
+  text-align: right;
+  
+}
+
 .taskfield {
   margin: 1em;
   display: flex;
@@ -32,6 +52,7 @@ body {
 .task_form {
   display:flex;
   justify-content: center;
+  width: 100%;
 }
 
 .site-logo a:link {
@@ -51,8 +72,18 @@ body {
   border-radius: 0.5em;
   background-color: #DBE9EA;
   margin: 1em;
-  display: inline-block;
-  
+  display: inline-block;  
+}
+
+.edit_task {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  justify-self: center;
+  background-color: #DBE9EA;
+  padding: 1em;
+  width: auto;
+  border-radius: 0.5em;
 }
 
 .old {

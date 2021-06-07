@@ -1,8 +1,7 @@
 # TaskManager
-Simple To do list without bloat
+Simple To Do list, without bloat.
 
-I don't want all in one complicated app like microsoft todo, or trello. 
-I want simple hammer in the world of swiss knifes.
+I don't want an all in one complicated app like Microsoft To Do, or Trello. 
+I want a simple hammer in the world of swiss army knives.
 
-Simply login and add projects and tasks, 
-no customization, no fancy canban tables, no agile workflows, no shit.
+Simply login and add projects and tasks - no customization, no fancy canban tables, no agile workflows, no bullshit.

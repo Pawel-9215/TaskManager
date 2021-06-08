@@ -1,11 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
-
+<br>
+<div class='task_form'>
+    <div class="edit_task">
+        <div class=''>
 <h2 class = "title">Delete Project</h2>
 <form method="post">{% csrf_token %}
      
-    <p>Are you sure you want to delete "{{ object }}"?</p>
+    <p>Are you sure you want to delete "{{ object }}"?<br>
+    This will <b>delete all tasks</b> assigned to this project</p>
         <input type="submit" value="Confirm">
     </form>
+    <br><br>
+</div>
+</div>
+</div>
 
 {% endblock %}

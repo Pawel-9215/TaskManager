@@ -1,21 +1,50 @@
 {% extends "base.html" %}
 {% block content %}
-
-<div class=>
-    <div class='taskfield'>
-        {% for project in project_list %}
-        <div class="project">
-            <a href="{% url 'edit_project' pk=project.pk %}">
-            <div class="container">
-            {{ project.title }}
-            </div> </a>
-        </div>
-        <a class = "projectx projectxbut" href="{% url 'delete_project' pk=project.pk %}">
-            <div class="container">
-                <b>X</b>
+<nav class="sub-navbar">
+    <ul class="nav-links">
+        <li class="sub-nav-link"><a href="{% url 'task_list' %}">Open Tasks</a></li>
+        <li class="sub-nav-link"><a href="{% url 'task_done' %}">Finished Tasks</a></li>
+        <li class="sub-nav-link"> <div class="dropdown">
+            <a href='#' class="drop-btn">Filter by Project:</a>
+            <div class="dropdown-content">
+                {% for project in project_list %}
+                <a href="{% url 'project_detail' pk=project.pk %}">{{ project.title }}</a>
+                {% endfor %}
             </div>
-        </a>
+          </div> </li>
+          <li class="sub-nav-link"><a href="{% url 'create_task' %}">+Add Task</a></li>
+          <li class="sub-nav-link"><a href="{% url 'create_project' %}">+Add Project</a></li>
+
+    </ul>
+</nav>
+
+<div class='taskfield project-field'>
+    
+        {% for project in project_list %}
+        <div class='sub-flex'> 
+            <div class="project">
+                <a href="{% url 'project_detail' pk=project.pk %}">
+                <div class="container">
+                {{ project.title }}
+                </div> </a>
+            </div>
+            <div class = "projectx">
+                <a class=' projectxbut' href="{% url 'edit_project' pk=project.pk %}">
+                    <div class="container">
+                        <b>Edit</b>
+                    </div>
+                </a>
+            </div>
+            <div class = "projectx">
+                <a class=' projectxbut' href="{% url 'delete_project' pk=project.pk %}">
+                    <div class="container">
+                        <b>X</b>
+                    </div>
+                </a>
+            </div>
+            
+        </div>
         {% endfor %}
-    </div>
+    
 </div>
 {% endblock %}

@@ -1,4 +1,4 @@
 taskorganiser/.env
-taskorganiser/__pycache__
+taskorganiser/__pycache__/*
 db.sqlite3
-tasktrack/__pycache__
+tasktrack/__pycache__/*

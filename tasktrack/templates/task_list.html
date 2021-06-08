@@ -2,7 +2,7 @@
 {% block content %}
 <nav class="sub-navbar">
     <ul class="nav-links">
-        <li class="sub-nav-link"><a href="{% url 'task_list' %}">All Tasks</a></li>
+        <li class="sub-nav-link"><a href="{% url 'task_list' %}">Open Tasks</a></li>
         <li class="sub-nav-link"><a href="{% url 'task_done' %}">Finished Tasks</a></li>
         <li class="sub-nav-link"> <div class="dropdown">
             <a href='#' class="drop-btn">Filter by Project:</a>
@@ -50,7 +50,7 @@
             {% if task.status == 0 %}
                 <div class="task">
             {% else %}
-                <div class="task-finished">
+                <div class="task finished">
             {% endif %}
         {% endif %}
             <a href="{% url 'edit_task' pk=task.pk %}">

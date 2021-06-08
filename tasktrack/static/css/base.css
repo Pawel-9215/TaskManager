@@ -32,10 +32,12 @@ body {
 }
 
 .taskfield {
-  margin: 1em;
+  
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content:center;
+  width:fit-content;
+  
 }
 
 
@@ -67,12 +69,11 @@ body {
 .task {
   box-shadow: none;
   transition: 0.1s;
-  min-width: 22%;
-  max-width: 22%;
+  width: 25em;
   border-radius: 0.5em;
-  background-color: #DBE9EA;
-  margin: 1em;
-  display: inline-block;  
+  background-color: #e8f6f7;
+  margin: 1em; 
+  overflow-wrap: break-word;
 }
 
 .edit_task {
@@ -90,41 +91,41 @@ body {
   background: #F5717F;
 }
 
-.task-finished {
-  box-shadow: none;
-  transition: 0.1s;
-  min-width: 22%;
-  max-width: 22%;
-  border-radius: 0.5em;
+.finished {
   background-color: #CDDAE0;
-  margin: 1em;
-  display: inline-block;
-  
+  color: white;
+  text-decoration-line: line-through
+}
+
+.sub-flex {
+  display: flex;
+  width: 50%;
 }
 
 .project {
   box-shadow: none;
   transition: 0.1s;
-  min-width: 80%;
-  max-width: 80%;
+  flex-grow: 4;
   border-radius: 0.5em;
   background-color: #CDDAE0;
   margin: 0.4em;
-  display: inline-block;
+  
   
 }
 .projectx {
   box-shadow: none;
   transition: 0.1s;
-  min-width: 10%;
-  max-width: 10%;
-  border-radius: 0.8em;
+  flex-grow: 0;
+  border-radius: 0.5em;
   background-color: #E6DCC9;
   margin: 0.4em;
-  display: inline-block;
-  justify-content: center;
   text-align: center;
   
+}
+
+.project-field {
+  flex-direction: column;
+  align-content: center;
 }
 
 .projectxbut {
@@ -152,16 +153,21 @@ body {
   text-decoration: none;
 }
 
+.task a:visited {
+  color: #000000;
+  text-decoration: none;
+}
+
 .task:hover {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
-.task-finished a:link {
+.finished a:link {
   color: rgb(255, 255, 255);
   text-decoration:line-through;
 }
 
-.task-finished:hover {
+.finished:hover {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
@@ -213,6 +219,7 @@ ul
     align-items: center;
     transition: 50ms;
     height: 2.8em;
+    overflow: hidden;
 }
 
 .dropdown {
@@ -285,17 +292,26 @@ li a:hover, .dropdown:hover .dropbtn {
       min-width: 40%;
       max-width: 40%; 
     }
+    .sub-flex{
+      width: 100%;
+    }
   
   }
 
-@media all and (max-width: 400px) {
+@media all and (max-width: 500px) {
 
     .MyNavbar > li {  
       flex-basis: 100%;  
     }
+
     .task {
-      min-width: 80%;
-      max-width: 80%; 
+      min-width: 90%;
+      max-width: 90%; 
+    }
+
+    .sub-navbar {
+      
+      height: 4em;
     }
 
   }

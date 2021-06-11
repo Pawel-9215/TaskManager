@@ -152,6 +152,14 @@ class ProjectEditView(LoginRequiredMixin, generic.UpdateView):
     template_name = 'project_form.html'
     success_url = reverse_lazy('project_list')
 
+    def form_valid(self, form):
+        obj = self.get_object()
+        # since status is 0, 1 not comparing like status == 1
+        if form.cleaned_data.get('status'):
+            obj.Tasks.update(status=1)
+        return super().form_valid(form)
+
+
 class DeleteProjectView(LoginRequiredMixin, generic.DeleteView):
     login_url = '/login/'
     model = Project

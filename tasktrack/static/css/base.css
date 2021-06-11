@@ -2,7 +2,7 @@ body {
     margin: 0;
     font-family: 'Barlow Semi Condensed', sans-serif;
     color: rgb(53, 36, 36);
-    background-color: rgb(255, 255, 255);
+    background-color: #e8f6f7;
 }
 
 .all_projects {
@@ -69,9 +69,9 @@ body {
 .task {
   box-shadow: none;
   transition: 0.1s;
-  width: 25em;
+  width: 22em;
   border-radius: 0.5em;
-  background-color: #e8f6f7;
+  background-color: #ffffff;
   margin: 1em; 
   overflow-wrap: break-word;
 }
@@ -231,6 +231,10 @@ li a:hover, .dropdown:hover .dropbtn {
     background-color: #E6DCC9;
   }
 
+  .title {
+    color: #303030;
+  }
+
 .dropdown-content {
     display: none;
     position: absolute;
@@ -249,6 +253,7 @@ li a:hover, .dropdown:hover .dropbtn {
     display: block;
     text-align: left;
   }
+
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {background-color: #E6DCC9;}
@@ -305,8 +310,8 @@ li a:hover, .dropdown:hover .dropbtn {
     }
 
     .task {
-      min-width: 90%;
-      max-width: 90%; 
+      min-width: 80%;
+      max-width: 80%; 
     }
 
     .sub-navbar {

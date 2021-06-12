@@ -32,7 +32,8 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 DEBUG = True
 
 ALLOWED_HOSTS = ['pawelek.pythonanywhere.com',
-                '127.0.0.1']
+                '127.0.0.1',
+                'www.morgenlist.com']
 
 
 # Application definition

@@ -4,3 +4,5 @@ db.sqlite3
 ./db.sqlite3
 tasktrack/__pycache__/*
 db.sqlite3
+db.sqlite3
+.vscode/settings.json

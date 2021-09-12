@@ -21,7 +21,7 @@
 
 <div class='taskfield'>
 {% if project %}
-    {% for task in project.Tasks.all %}
+    {% for task in project.tasks.all %}
         {% if task.status == 0 %}
             {% if task.is_week_old %}
                 <div class="task old">

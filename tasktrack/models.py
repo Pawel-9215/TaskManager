@@ -21,11 +21,11 @@ class Project(models.Model):
 class Task(models.Model):
     
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-    project = models.ForeignKey('tasktrack.Project', related_name='Tasks', null=True, on_delete=models.CASCADE)
-    title = models.CharField(max_length=24, unique=True)
+    project = models.ForeignKey('tasktrack.Project', related_name='tasks', null=True, on_delete=models.CASCADE)
+    title = models.CharField(max_length=64, unique=True)
     # author = models.ForeignKey(User, on_delete= models.CASCADE, related_name= 'tasks')
     updated_on = models.DateTimeField(auto_now = True)
-    description = models.TextField(max_length=48)
+    description = models.TextField(max_length=512)
     created_on = DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default = 0)
 

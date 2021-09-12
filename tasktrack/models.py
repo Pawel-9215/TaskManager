@@ -1,3 +1,4 @@
+from typing import Optional
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.fields import DateTimeField
@@ -27,6 +28,7 @@ class Task(models.Model):
     updated_on = models.DateTimeField(auto_now = True)
     description = models.TextField(max_length=512)
     created_on = DateTimeField(auto_now_add=True)
+    deadline_in = models.IntegerField(null=True, default=5)
     status = models.IntegerField(choices=STATUS, default = 0)
 
     class Meta:
@@ -40,6 +42,6 @@ class Task(models.Model):
         self.save()
 
     def is_week_old(self):
-        return (timezone.now() - self.created_on).days > 5
+        return (timezone.now() - self.created_on).days > self.deadline_in
 
     

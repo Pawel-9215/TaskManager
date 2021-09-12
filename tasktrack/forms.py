@@ -16,7 +16,7 @@ class TaskForm(forms.ModelForm):
 
     class Meta():
         model = Task
-        fields = {'project', 'title', 'description', 'status'}
+        fields = {'project', 'title', 'description', 'deadline_in', 'status'}
 
         widgets = {
                 'title': forms.TextInput(attrs={'class':'textinputclass'}),

@@ -21,6 +21,7 @@ class TaskForm(forms.ModelForm):
         widgets = {
                 'title': forms.TextInput(attrs={'class':'textinputclass'}),
                 'description': forms.Textarea(attrs={'class':'textinputclass-description'}),
+                'deadline_in': forms.SelectDateWidget(),
             }
     
     def __init__(self, *args, **kwargs):

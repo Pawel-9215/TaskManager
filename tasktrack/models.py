@@ -28,7 +28,7 @@ class Task(models.Model):
     updated_on = models.DateTimeField(auto_now = True)
     description = models.TextField(max_length=512)
     created_on = DateTimeField(auto_now_add=True)
-    deadline_in = models.IntegerField(null=True, default=5)
+    deadline_in = DateTimeField(null=True)
     status = models.IntegerField(choices=STATUS, default = 0)
 
     class Meta:
@@ -42,6 +42,11 @@ class Task(models.Model):
         self.save()
 
     def is_week_old(self):
-        return (timezone.now() - self.created_on).days > self.deadline_in
+        if self.deadline_in is not None:
+            days_to_deadline = (self.deadline_in - timezone.now()).days
+            print(self, days_to_deadline)
+            return 0 > days_to_deadline
+        else:
+            return False
 
     

@@ -11,6 +11,24 @@ STATUS = (
     (1, "Done"),
 )
 
+PUBLISHED = (
+    (0, "NotPublished"),
+    (1, "Published"),
+)
+
+class Devlog(models.Model):
+    author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    title = models.CharField(max_length=128)
+    created_on = DateTimeField(auto_now_add=True)
+    content = models.CharField(max_length=4096)
+    status = models.IntegerField(choices=PUBLISHED, default = 0)
+
+    class Meta:
+        ordering = ['created_on']
+
+    def __str__(self) -> str:
+        return self.title[:12]+"(...)"
+
 class Project(models.Model):
     owner = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     title = models.CharField(max_length=24, unique=True)

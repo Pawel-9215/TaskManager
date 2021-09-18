@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<br><br>
+
+<div class='devlog'>
+    {% for news in devlog %}
+        <div class='devlog_entry'>
+            <h2 class = "title">{{ news.title }}</h2>
+            <i>&emsp;&emsp;{{ news.created_on|date }}</i>
+            <p>&emsp;{{ news.content }}</p>
+        </div>
+        
+
+    {% endfor %}
+</div>
+
+<br><br>
+
+                
+
+{% endblock %}

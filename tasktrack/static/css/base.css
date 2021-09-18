@@ -66,6 +66,21 @@ body {
   font-size: smaller;
 }
 
+.devlog {
+  margin-left: 22em;
+  margin-right: 22em;
+}
+
+.devlog_entry {
+  background-color: rgb(255, 255, 255);
+  padding: 1em;
+  padding-top: 0.1em;
+  margin: 0.5em;
+  margin-bottom: 1.5em;
+  border-radius: 0.5em;
+  font-size: large;
+}
+
 .task {
   box-shadow: none;
   transition: 0.1s;
@@ -283,6 +298,11 @@ li a:hover, .dropdown:hover .dropbtn {
 }
 
 @media all and (max-width: 1200px) {  
+
+    .devlog {
+      margin-left: 4em;
+      margin-right: 4em;
+    }
     
     .MyNavbar {  
       flex-wrap: wrap;
@@ -304,6 +324,11 @@ li a:hover, .dropdown:hover .dropbtn {
   }
 
 @media all and (max-width: 500px) {
+
+    .devlog {
+      margin-left: 1em;
+      margin-right: 1em;
+    }
 
     .MyNavbar > li {  
       flex-basis: 100%;  

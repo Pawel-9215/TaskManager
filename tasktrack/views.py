@@ -1,7 +1,7 @@
 from django.contrib import auth
 from django.shortcuts import render, redirect
 from django.views import generic
-from .models import Project, STATUS, Task
+from .models import Project, STATUS, Task, Devlog
 from django.contrib.auth.mixins import LoginRequiredMixin
 from tasktrack.forms import TaskForm, ProjectForm
 from django.urls import reverse_lazy
@@ -39,7 +39,11 @@ class UserRegister(generic.FormView):
             return redirect('task_list')
         return super(UserRegister, self).get(*args, **kwargs)
 
-
+class DevLog(generic.ListView):
+    model = Devlog
+    queryset = Devlog.objects.filter(status=1).order_by('-created_on')
+    context_object_name = 'devlog'
+    template_name = 'devlog.html'
 
 class TaskList(LoginRequiredMixin, generic.ListView):
     login_url = '/login/'

@@ -20,12 +20,16 @@
     <!-- navbar -->
     <nav class="MyNavbar">
         <a href="{% url 'task_list' %}" class="site-logo">MorgenList.com</a>
+        
         <ul class="nav-links">
+            <li class='nav-item'><a href="{% url 'devlog' %}">News</a></li>
             {% if request.user.is_authenticated %}
+
                 <li class='nav-item'><a href="{% url 'task_list' %}">Tasks</a></li>
                 <li class='nav-item'><a href="{% url 'project_list' %}">Projects</a></li>
                 <li class='nav-item'><a href="{% url 'logout' %}">User: {{ request.user }}</a></li>
             {% else %}
+
                 <li class='nav-item'><a href="{% url 'user_login' %}">Login</a></li>
             {% endif %}
 

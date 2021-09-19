@@ -59,7 +59,7 @@ class Task(models.Model):
         self.updated_on = timezone.now()
         self.save()
 
-    def is_week_old(self):
+    def is_late(self):
         if self.deadline_in is not None:
             days_to_deadline = (self.deadline_in - timezone.now()).days
             print(self, days_to_deadline)

@@ -23,7 +23,7 @@
 {% if project %}
     {% for task in project.tasks.all %}
         {% if task.status == 0 %}
-            {% if task.is_week_old %}
+            {% if task.is_late %}
                 <div class="task old">
             {% else %}
                 <div class="task">
@@ -44,7 +44,7 @@
 {% else %}
 
     {% for task in task_list %}
-        {% if task.is_week_old and not task.status == 1 %}
+        {% if task.is_late and not task.status == 1 %}
             <div class = "task old">
         {% else %}
             {% if task.status == 0 %}
